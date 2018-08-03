@@ -2,6 +2,10 @@
 
 export RELEASE=$(curl -s https://api.github.com/repos/kubeless/kubeless/releases/latest | grep tag_name | cut -d '"' -f 4)
 
+# Persist Article Handler
+kubeless trigger kafka delete broadcast-article 
+kubeless function delete broadcast-article
+
 # Get Article Handler
 kubeless trigger http delete get-article
 kubeless function delete get-article

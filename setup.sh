@@ -39,3 +39,8 @@ kubeless function deploy get-article --runtime nodejs8 --dependencies get-articl
 sleep 5
 kubeless trigger http create get-article --function-name get-article --path get --hostname localhost
 # curl -v http://localhost/get
+
+# Broadcast Article handler
+kubeless function deploy broadcast-article --runtime nodejs8 --dependencies broadcast-article/package.json --handler index.broadcastArticle --from-file broadcast-article/index.js
+sleep 5
+kubeless trigger kafka create broadcast-article --function-selector created-by=kubeless,function=broadcast-article --trigger-topic new-article-topic
