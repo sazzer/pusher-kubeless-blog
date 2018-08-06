@@ -1,6 +1,13 @@
 import React from 'react';
 import { List } from 'semantic-ui-react';
 import axios from 'axios';
+import Pusher from 'pusher-js';
+
+const pusher = new Pusher('PUSHER_APP_KEY', {
+    cluster: 'PUSHER_CLUSTER',
+    encrypted: true
+});
+
 
 export class ArticleList extends React.Component {
     state = {
@@ -24,6 +31,10 @@ export class ArticleList extends React.Component {
 
     componentDidMount() {
         this.loadList();
+
+        pusher.subscribe('posts').bind('new-post', () => {
+            this.loadList();
+        });
     }
 
     render() {
