@@ -2,6 +2,8 @@
 
 Serverless architectures are becoming very popular. This repository demonstrates a Serverless application - using Kubeless - and how to easily add components to it.
 
+This repository is discussed at [Adding realtime functionality to a blog using Kubeless and Pusher](https://pusher.com/tutorials/realtime-blog-kubeless).
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
